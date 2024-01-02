@@ -324,6 +324,30 @@ footer .copyright {
     margin-top: 5px;
 }
 
+footer .copyright a {
+    color: #b1b0b0;
+}
+
+footer ul {
+    font-size: 14px;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+footer ul li {
+    margin-bottom: 30px;
+}
+
+footer ul li a {
+    color: #b1b0b0;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #ca49d7;
+}
+
 @keyframes logo-animation {
     0% {
         width: 30%;
