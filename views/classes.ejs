@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Glorious | Классы</title>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -17,8 +17,8 @@
         <i class="fa-brands fa-discord"></i>
     </div>
     <div class="bg-wave">
-        <img class="logo" src="img/logo.png">
-        <img class="background" src="img/bg-home.png">
+        <img class="logo" src="/img/logo.png">
+        <img class="background" src="/img/bg-home.png">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: relative;">
             <path fill="#1a1a1a" fill-opacity="1"
                 d="M0,96L120,122.7C240,149,480,203,720,202.7C960,203,1200,149,1320,122.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
@@ -79,7 +79,7 @@
 
                 <div class="row g-5">
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" onclick="window.location = '/classes/warrior'">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Воин</p>
 
@@ -171,29 +171,7 @@
             </div>
         </div>
 
-        <footer>
-            <div class="container">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <img src="img/logo.png">
-                        <div style="width: 520px;">
-                            <p class="copyright">Copyright © Glorious 2022-2023. Все права защищены.<br>Права на игру Minecraft
-                                принадлежат Mojang Studios и никак не связаны с Glorious. Вебсайт Glorious не относится к Mojang
-                                Studios.<br><br>Вебсайт был разработан by <a href="https://github.com/florida-12" target="_blank">Florida</a></p>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <ul>      
-                            <li><a href="https://discord.gg/2FbAMjeNmH" target="_blank">Наш дискорд-сервер</a></li>
-                            <li><a href="">Условия использования</a></li>
-                            <li><a href="">Партнерские программы</a></li>
-                            <li style="margin-bottom: 0;"><a href="">Сообщить об ошибке</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <%- footer %>
     </div>
 </body>
 

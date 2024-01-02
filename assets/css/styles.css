@@ -1,5 +1,6 @@
 body {
     background-color: #1a1a1a;
+    font-family: 'Acrom';
     margin: 0;
 }
 
@@ -220,10 +221,6 @@ nav .nav-link .dropdown p:hover a {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
-}
-
-.hero-classes {
-    font-family: 'Acrom';
 }
 
 .hero-classes .global-title {
