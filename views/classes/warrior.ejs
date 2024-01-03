@@ -30,37 +30,70 @@
             font-size: 40px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-top: 0;
+            margin-top: -160px;
             margin-bottom: 20px;
         }
 
         .warrior-desc {
+            width: 80%;
             color: #b1b0b0;
-            font-size: 16px;
-            margin-bottom: 80px;
+            font-size: 18px;
+            margin-bottom: 60px;
         }
 
         .warrior-subtitle {
-            color: #fff;
+            color: #ca49d7;
+            text-transform: uppercase;
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 40px;
         }
 
-        .warrior-img {
-            width: 14%;
-            position: relative;
+        .warrior table,
+        th,
+        td {
+            border: 2px solid #353535;
+            border-collapse: collapse;
+        }
+
+        .warrior table {
+            width: 79%;
+            height: 140px;
             background: #292929;
             border-radius: 6px;
             border: 2px solid #353535;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .warrior table td {
             padding-top: 10px;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 5px;
-            margin-top: -60px;
-            margin-left: 50px;
-            margin-bottom: 20px;
-            float: right;
+            padding-left: 15px;
+            padding-bottom: 12px;
+        }
+
+        .warrior td img {
+            margin-bottom: -3px;
+        }
+
+        .warrior-line {
+            width: 100%;
+            height: 2px;
+            position: relative;
+            background: #2d2d2d;
+            border-radius: 40px;
+            margin-top: 60px;
+        }
+
+        .warrior-img {
+            width: 13.5%;
+            position: relative;
+            background: #292929;
+            border: 2px solid #353535;
+            padding-top: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 20px;
         }
 
         .warrior-img img {
@@ -160,20 +193,50 @@
             <div class="nav-line"></div>
 
             <div class="warrior">
-                <p class="warrior-title">Воин
-                <div class="warrior-img">
-                    <img src="https://cdn.discordapp.com/attachments/1191014765435301949/1191795459967160442/3.png">
+                
+                <div class="d-flex justify-content-between">
+                    <table>
+                        <tr>
+                            <td>—————————</td>
+                            <td style="color: #EA4335;">Здоровье <img src="https://cdn.discordapp.com/attachments/1117777787638530099/1192202546849255454/health.png"></td>
+                            <td style="color: #2399d8;">Мана <img src="https://cdn.discordapp.com/attachments/1117777787638530099/1192202546585010186/mana.png"></td>
+                            <td>Восстановление здоровья</td>
+                            <td>Восстановление маны</td>
+                        </tr>
+                        <tr>
+                            <td>На старте</td>
+                            <td>45</td>
+                            <td>20</td>
+                            <td>0.2</td>
+                            <td>0.1</td>
+                        </tr>
+                        <tr>
+                            <td>За уровень</td>
+                            <td>+5.3</td>
+                            <td>+0.5</td>
+                            <td>+0.05</td>
+                            <td>+0.05</td>
+                        </tr>
+                    </table>
+                    <div class="warrior-img">
+                        <img src="https://cdn.discordapp.com/attachments/1190030669083070566/1192200274002067466/3.png">
+                    </div>
                 </div>
-                </p>
+                
+                <p class="warrior-title">Воин</p>
                 <p class="warrior-desc">Воин - сильный класс ближнего боя, его способности позволяют наносить большое
                     количество ближних ударов. Большое запас здоровья позволяет воину отлично со своих соперников. Его
                     сильные ультимативные способности могут наносить кошмарный площадной урон. В основе всего урона у
                     него лежит рубящий урон.</p>
+
                 <div>
-                    <p class="warrior-subtitle">Специальные навыки</p>
+                    <div class="warrior-line"></div>
+                    <p class="warrior-subtitle">Специальные умения</p>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198383276044/icon_brutal_strike.png">
-                        Разрез</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198383276044/icon_brutal_strike.png">
+                        Разрез
+                    </p>
                     <ul>
                         <li>Некоторые удары настолько свирепые, что подпитывают ярость воина ещё больше, заставляя его
                             драться ещё усерднее.</li>
@@ -184,8 +247,10 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036197984800798/lungewarrior.png">
-                        Выпад</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036197984800798/lungewarrior.png">
+                        Выпад
+                    </p>
                     <ul>
                         <li>Особый удар, которым некогда великий воин проткнул сердце дракона.</li>
                         <li>Игрок пронзает своим мечем все цели впереди, атака наносит критический урон.</li>
@@ -194,8 +259,10 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198563614780/icon_chain_hook.png">
-                        Притяжение</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198563614780/icon_chain_hook.png">
+                        Притяжение
+                    </p>
                     <ul>
                         <li>Множество целей пыталось уйти от ярости воина.</li>
                         <li>Игрок выпускает впереди себя цепь, которая притягивает первую сущность.</li>
@@ -203,8 +270,10 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036197804462120/icon_shield_barrier.png">
-                        Великий щит</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036197804462120/icon_shield_barrier.png">
+                        Великий щит
+                    </p>
                     <ul>
                         <li>Даже в самых жестоких бойнях, зачастую сильные воины выходят без видимых ранений.</li>
                         <li>Игрок призывает вокруг себя 4 щита, которые защитят его от следующих 4 атак.</li>
@@ -212,8 +281,10 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036469465337916/skills520.png">
-                        Адреналин</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036469465337916/skills520.png">
+                        Адреналин
+                    </p>
                     <ul>
                         <li>Кратковременное высвобождение ярости дает взрывную мощь вначале сражения.</li>
                         <li>Резкий выброс адреналина делает ваши атаки быстрее, после окончания эффекта, вы не сможете 5
@@ -222,8 +293,10 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198756548749/icon_judgement.png">
-                        Воля небес</p>
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036198756548749/icon_judgement.png">
+                        Воля небес
+                    </p>
                     <ul>
                         <li>Воины взывают к самому Бахамуту, чтобы сделать свой сильнейший удар.</li>
                         <li>Игрок призывает огромный щит и начинает двигаться вперёд, после он взлетает наверх, призывая
@@ -232,13 +305,41 @@
                     </ul>
                     <div class="line"></div>
                     <p class="warrior-skill">
-                        <img src="https://media.discordapp.net/attachments/1190943166229127178/1191036198920146944/icon_rampage.png">
-                        Вихрь мечей</p>
+                        <img
+                            src="https://media.discordapp.net/attachments/1190943166229127178/1191036198920146944/icon_rampage.png">
+                        Вихрь мечей
+                    </p>
                     <ul>
                         <li>Когда союзники воина повержены, он становится сам себе войском.</li>
                         <li>Воин разрезает всех вокруг своим мечем, пока способность применяется, игрок не может
                             двигаться но получает 50% уменьшения урона.</li>
                         <li>Урон - рубящий. Тип навыка - мощь.</li>
+                    </ul>
+                    <div class="warrior-line"></div>
+                    <p class="warrior-subtitle">Пассивные умения</p>
+                    <p class="warrior-skill">
+                        <img
+                            src="https://media.discordapp.net/attachments/1190943166229127178/1191036198181929072/passiveskillswarrior.png">
+                        Одержимость
+                    </p>
+                    <ul>
+                        <li>Некоторые воины прошли через много кровавых побоищь. Теперь единственный верный путь для них
+                            - убивать больше и больше монстров.</li>
+                        <li>При убийстве любой сущности, игрок восстановит 7.5% и увеличит свой урон на 6 ед.</li>
+                        <li>Тип навыка - мощь.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="warrior-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1191036598792507524/skills320.png">
+                        Потустороннее касание
+                    </p>
+                    <ul>
+                        <li>Некоторые воины подались помимо боевых искусств ещё и в искусство магии. Их атаки особо
+                            опасные, потому-что они отнимают жизненную силу.</li>
+                        <li>Когда игрок атакует сущность, на неё применяется негативный эффект. Эффект снижает
+                            максимальную ману, скорость атаки и передвижения.</li>
+                        <li>Тип навыка - отсутствует.</li>
                     </ul>
                 </div>
 
