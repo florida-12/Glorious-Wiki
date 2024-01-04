@@ -79,7 +79,7 @@
 
                 <div class="row g-5">
                     <div class="col-4">
-                        <div class="card" onclick="window.location = '/classes/warrior'">
+                        <div class="card" onclick="window.location = '/classes/warrior'" onmouseenter="$('#warrior_video').css('display', 'block'); $('#warrior_img').css('display', 'none'); $('#warrior_video').get(0).play();" onmouseleave="$('#warrior_video').css('display', 'none'); $('#warrior_img').css('display', 'block'); $('#warrior_video').get(0).pause(); $('#warrior_video').get(0).currentTime = 0;">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Воин</p>
 
@@ -89,7 +89,10 @@
                             </div>
                             <div class="frame">
                                 <div class="d-flex justify-content-center" style="height: 100%;">
-                                    <img
+                                    <video muted loop id="warrior_video">
+                                        <source src="img/warrior.mp4" type="video/mp4">
+                                    </video>
+                                    <img id="warrior_img"
                                         src="https://cdn.discordapp.com/attachments/1191014765435301949/1191026133005762560/2.png">
                                 </div>
                             </div>
@@ -97,17 +100,19 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" onmouseenter="$('#paladin_video').css('display', 'block'); $('#paladin_img').css('display', 'none'); $('#paladin_video').get(0).play();" onmouseleave="$('#paladin_video').css('display', 'none'); $('#paladin_img').css('display', 'block'); $('#paladin_video').get(0).pause(); $('#paladin_video').get(0).currentTime = 0;">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Паладин</p>
-
                             </div>
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex subtitle">Герой ближнего боя</p>
                             </div>
                             <div class="frame">
                                 <div class="d-flex justify-content-center" style="height: 100%;">
-                                    <img
+                                    <video muted loop id="paladin_video">
+                                        <source src="img/paladin.mp4" type="video/mp4">
+                                    </video>
+                                    <img id="paladin_img"
                                         src="https://cdn.discordapp.com/attachments/1191014765435301949/1191751288430538802/76245946893e650d.png">
                                 </div>
                             </div>
@@ -115,7 +120,7 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" onmouseenter="$('#archer_video').css('display', 'block'); $('#archer_img').css('display', 'none'); $('#archer_video').get(0).play();" onmouseleave="$('#archer_video').css('display', 'none'); $('#archer_img').css('display', 'block'); $('#archer_video').get(0).pause(); $('#archer_video').get(0).currentTime = 0;">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Лучник</p>
 
@@ -125,15 +130,20 @@
                             </div>
                             <div class="frame">
                                 <div class="d-flex justify-content-center" style="height: 100%;">
-                                    <img
+                                    <video muted loop id="archer_video">
+                                        <source src="img/archer.mp4" type="video/mp4">
+                                    </video>
+                                    <img id="archer_img"
                                         src="https://cdn.discordapp.com/attachments/1191014765435301949/1191744839868502126/2.png">
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="col-2"></div>
+
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" onmouseenter="$('#thief_video').css('display', 'block'); $('#thief_img').css('display', 'none'); $('#thief_video').get(0).play();" onmouseleave="$('#thief_video').css('display', 'none'); $('#thief_img').css('display', 'block'); $('#thief_video').get(0).pause(); $('#thief_video').get(0).currentTime = 0;">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Вор</p>
 
@@ -143,7 +153,10 @@
                             </div>
                             <div class="frame">
                                 <div class="d-flex justify-content-center" style="height: 100%;">
-                                    <img
+                                    <video muted loop id="thief_video">
+                                        <source src="img/thief.mp4" type="video/mp4">
+                                    </video>
+                                    <img id="thief_img"
                                         src="https://cdn.discordapp.com/attachments/1191014765435301949/1191747685242388622/2.png">
                                 </div>
                             </div>
@@ -151,7 +164,7 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" onmouseenter="$('#mage_video').css('display', 'block'); $('#mage_img').css('display', 'none'); $('#mage_video').get(0).play();" onmouseleave="$('#mage_video').css('display', 'none'); $('#mage_img').css('display', 'block'); $('#mage_video').get(0).pause(); $('#mage_video').get(0).currentTime = 0;">
                             <div class="d-flex justify-content-center">
                                 <p class="d-inline-flex title">Маг</p>
 
@@ -161,17 +174,23 @@
                             </div>
                             <div class="frame">
                                 <div class="d-flex justify-content-center" style="height: 100%;">
-                                    <img
+                                    <video muted loop id="mage_video">
+                                        <source src="img/mage.mp4" type="video/mp4">
+                                    </video>
+                                    <img id="mage_img"
                                         src="https://cdn.discordapp.com/attachments/1191014765435301949/1191650019779035146/2.png">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-2"></div>
                 </div>
             </div>
         </div>
 
         <%- footer %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </div>
 </body>
 
