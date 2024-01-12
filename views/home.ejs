@@ -80,7 +80,7 @@
                 </div>
                 <div>
                     <div class="d-inline-flex online">
-                        <p class="d-inline-flex">Текущий онлайн:&nbsp;<span>1 игрок</span></p>
+                        <p class="d-inline-flex">Текущий онлайн:&nbsp;<span id="online">0</span></p>
                     </div>
                     <div class="d-inline-flex online" style="margin-left: 15px;" onclick="">
                         <p class="d-inline-flex">135.181.126.191:25893</p>
@@ -96,6 +96,28 @@
     </div>
 
     <script>
+        function declinePlayer(num) {
+            // Преобразование числа в строку для удобства работы
+            const numStr = String(num);
+
+            // Проверка на особые случаи (11-19)
+            if (numStr.length >= 2 && numStr.slice(-2) >= 11 && numStr.slice(-2) <= 19) {
+                return 'игроков';
+            }
+
+            // Определение последней цифры числа
+            const lastDigit = Number(numStr.slice(-1));
+
+            // Склонение в зависимости от последней цифры
+            if (lastDigit === 1) {
+                return 'игрок';
+            } else if (lastDigit >= 2 && lastDigit <= 4) {
+                return 'игрока';
+            } else {
+                return 'игроков';
+            }
+        }
+
         const serverAddress = '135.181.126.191:25893';
 
         const apiUrl = `https://api.mcsrvstat.us/2/${serverAddress}`;
@@ -106,6 +128,8 @@
                 if (data.online) {
                     console.log(`Сервер ${serverAddress} онлайн`);
                     console.log(`Игроков онлайн: ${data.players.online}`);
+                    let element = document.getElementById('online');
+                    element.innerHTML = `${data.players.online} ${declinePlayer(data.players.online)}`;
                 } else {
                     console.log(`Сервер ${serverAddress} офлайн`);
                 }
