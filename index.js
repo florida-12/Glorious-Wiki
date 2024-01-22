@@ -33,6 +33,10 @@ app.get('/classes/warrior', (req, res) => {
     res.render('classes/warrior', { footer: footer_html });
 });
 
+app.get('/classes/archer', (req, res) => {
+    res.render('classes/archer', { footer: footer_html });
+});
+
 
 const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
