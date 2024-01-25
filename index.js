@@ -37,6 +37,10 @@ app.get('/classes/archer', (req, res) => {
     res.render('classes/archer', { footer: footer_html });
 });
 
+app.get('/classes/paladin', (req, res) => {
+    res.render('classes/paladin', { footer: footer_html });
+});
+
 
 const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
