@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glorious | Предметы</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        .add-item {
+            position: relative;
+            background: #202020;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-top: 12px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 14px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.1s;
+            display: inline-flex;
+        }
+
+        .add-item:hover {
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+        }
+
+        .add-item i {
+            font-size: 14px;
+            margin-top: 3px;
+            margin-left: 10px;
+        }
+
+        .sort-level {
+            position: relative;
+            background: #202020;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-top: 12px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 14px;
+            margin-left: 10px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.1s;
+            display: inline-flex;
+        }
+
+        .sort-level:hover {
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+        }
+
+        .sort-level i {
+            font-size: 14px;
+            margin-top: 3px;
+            margin-left: 10px;
+        }
+
+        .item {
+            position: relative;
+            background: #202020;
+            border-radius: 11px;
+            padding: 18px;
+            margin-bottom: 25px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.1s;
+        }
+
+        .item:hover {
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+        }
+
+        .item .frame {
+            width: 70px;
+            height: 70px;
+            padding: 5px;
+            margin-right: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .item img {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .item p {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .item .level {
+            background: #303030;
+            border-radius: 40px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            padding-top: 4px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 4.5px;
+            margin-right: 5px;
+            display: inline-flex;
+        }
+
+        .item .rarity {
+            border-radius: 40px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-top: 4px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 4.5px;
+            display: inline-flex;
+        }
+
+        .item .ordinary {
+            background: #717171;
+        }
+
+        .item .extraordinary {
+            background: #4eb94b;
+        }
+
+        .item .rare {
+            background: #5969b7;
+        }
+
+        .item .epic {
+            background: #e14f68;
+        }
+
+        .item .heroic {
+            background: #2040dc;
+        }
+
+        .item .legendary {
+            background: #ff9500;
+        }
+
+        .item .mythical {
+            background: #b870f3;
+        }
+
+        .item .demonic {
+            background: #a9142d;
+        }
+
+        .item .divine {
+            background: #ffcc33;
+        }
+    </style>
+
+    <div class="discord" onclick="window.open('https://discord.gg/2FbAMjeNmH', '_blank');">
+        <i class="fa-brands fa-discord"></i>
+    </div>
+    <div class="bg-wave">
+        <img class="logo" src="/img/logo.png">
+        <img class="background" src="/img/bg-home.png">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: relative;">
+            <path fill="#1a1a1a" fill-opacity="1"
+                d="M0,96L120,122.7C240,149,480,203,720,202.7C960,203,1200,149,1320,122.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+    <div class="bg">
+        <div class="container">
+            <nav>
+                <div class="d-flex justify-content-between">
+                    <div class="nav-link" onclick="window.location = '/'">
+                        <p class="d-inline-flex"><a>Главная</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.location = '/classes'">
+                        <p class="d-inline-flex"><a>Классы</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.location = '/items'">
+                        <p class="d-inline-flex"><a>Предметы</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.open('http://m10.joinserver.xyz:25639/', '_blank');">
+                        <p class="d-inline-flex"><a>Локации</a></p>
+                    </div>
+                    <div class="nav-link">
+                        <p class="d-inline-flex" style="border-radius: 8px 8px 0 0;"><a>Существа</a><i
+                                class="fa-solid fa-chevron-down"></i></p>
+                        <div class="dropdown">
+                            <p><a href="/creatures/characters">Персонажи</a></p>
+                            <div class="line"></div>
+                            <p><a href="/creatures/enemies">Противники</a></p>
+                            <div class="line"></div>
+                            <p><a href="/creatures/bosses">Боссы</a></p>
+                        </div>
+                    </div>
+                    <div class="nav-link">
+                        <p class="d-inline-flex" style="border-radius: 8px 8px 0 0;"><a>Квесты</a><i
+                                class="fa-solid fa-chevron-down"></i></p>
+                        <div class="dropdown">
+                            <p><a href="/quests/plot">Сюжетное&nbsp;прохождение</a></p>
+                            <div class="line"></div>
+                            <p><a href="/quests/side">Побочные&nbsp;задания</a></p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="nav-line"></div>
+
+            <div class="hero-classes">
+                <div class="d-flex justify-content-center">
+                    <p class="d-inline-flex global-title">Предметы</p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="global-line"></div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="d-inline-flex global-desc">Перечень всех предметов, которые может использовать игрок</p>
+                </div>
+
+                <div>
+                    <div class="add-item" onclick="window.location = '/items/add';">Добавить предмет<i
+                            class="fa-solid fa-plus"></i></div>
+
+                    <% if (url.includes('level=above')) { %>
+                        <div class="sort-level" onclick="window.location = '/items?level=below';">Уровень<i
+                                class="fa-solid fa-chevron-down"></i></div>
+                        <% } else { %>
+                            <div class="sort-level" onclick="window.location = '/items?level=above';">Уровень<i class="fa-solid fa-chevron-up"></i></div>
+                            <% } %>
+                </div>
+
+                <div class="row">
+                    <% items.forEach(item=> { %>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                            <div class="item">
+                                <div class="d-flex justify-content-start">
+                                    <div class="frame">
+                                        <img src="/media/items/<%= item.image %>">
+                                    </div>
+
+                                    <div>
+                                        <p>
+                                            <%= item.name %>
+                                        </p>
+                                        <div class="level">
+                                            <%= item.level %> ур.
+                                        </div>
+
+                                        <% if (item.rarity=='Обычный' ) { %>
+                                            <div class="rarity ordinary">Обычный</div>
+                                            <% } else if (item.rarity=='Необычный' ) { %>
+                                                <div class="rarity extraordinary">Необычный</div>
+                                                <% } else if (item.rarity=='Редкий' ) { %>
+                                                    <div class="rarity rare">Редкий</div>
+                                                    <% } else if (item.rarity=='Эпический' ) { %>
+                                                        <div class="rarity epic">Эпический</div>
+                                                        <% } else if (item.rarity=='Героический' ) { %>
+                                                            <div class="rarity heroic">Героический</div>
+                                                            <% } else if (item.rarity=='Легендарный' ) { %>
+                                                                <div class="rarity legendary">Легендарный</div>
+                                                                <% } else if (item.rarity=='Мифический' ) { %>
+                                                                    <div class="rarity mythical">Мифический</div>
+                                                                    <% } else if (item.rarity=='Демонический' ) { %>
+                                                                        <div class="rarity demonic">Демонический</div>
+                                                                        <% } else if (item.rarity=='Божественный' ) { %>
+                                                                            <div class="rarity divine">Божественный
+                                                                            </div>
+                                                                            <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <%- footer %>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </div>
+</body>
+
+</html>
