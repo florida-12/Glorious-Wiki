@@ -7,6 +7,9 @@ const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const app = express();
 
+
+require('dotenv').config();
+
 const db = new sqlite3.Database('database.db');
 db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, image TEXT, rarity TEXT, level INTEGER, data TEXT)");
@@ -111,7 +114,7 @@ app.get('/items/add', (req, res) => {
 });
 
 app.post('/items/add', upload.single('image'), (req, res) => {
-    if (req.body.password != 'bJ9?0v6@7m|C%<k£}e') return res.redirect('/items/add');
+    if (req.body.password != process.env.PASSWORD.toString()) return res.redirect('/items/add');
     if (!req.file) return res.status(400).send('No file uploaded.');
 
     const { name, rarity, level } = req.body;
