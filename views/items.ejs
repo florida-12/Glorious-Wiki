@@ -243,11 +243,11 @@
                     <div class="add-item" onclick="window.location = '/items/add';">Добавить предмет<i
                             class="fa-solid fa-plus"></i></div>
 
-                    <% if (url.includes('level=above')) { %>
-                        <div class="sort-level" onclick="window.location = '/items?level=below';">Уровень<i
-                                class="fa-solid fa-chevron-down"></i></div>
+                    <% if (url.includes('level=below')) { %>
+                        <div class="sort-level" onclick="window.location = '/items?level=above';">Уровень<i class="fa-solid fa-chevron-up"></i></div>
                         <% } else { %>
-                            <div class="sort-level" onclick="window.location = '/items?level=above';">Уровень<i class="fa-solid fa-chevron-up"></i></div>
+                            <div class="sort-level" onclick="window.location = '/items?level=below';">Уровень<i
+                                class="fa-solid fa-chevron-down"></i></div>
                             <% } %>
                 </div>
 
