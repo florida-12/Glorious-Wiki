@@ -135,8 +135,7 @@ app.post('/items/add', upload.single('image'), (req, res) => {
 
 app.get('/media/items/:imageName', async (req, res) => {
     const imageName = req.params.imageName;
-    const imagePath = path.join(__dirname, 'media\\items', imageName);
-    console.log(imagePath);
+    const imagePath = path.join(__dirname, 'media/items', imageName);
 
     try {
         await fs.access(imagePath);
