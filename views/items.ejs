@@ -94,9 +94,10 @@
             margin-right: 20px;
             text-align: center;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .item img {
+        .item .frame img {
             width: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -256,7 +257,7 @@
                     <% items.forEach(item=> { %>
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                            <div class="item">
+                            <div class="item" onclick="window.location = '/items/<%= item.id %>'">
                                 <div class="d-flex justify-content-start">
                                     <div class="frame">
                                         <img src="/media/items/<%= item.image %>">
