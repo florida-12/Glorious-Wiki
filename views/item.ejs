@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glorious | Предметы</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Acrom';
+            margin: 0;
+        }
+
+        .back {
+            width: 60px;
+            height: 46px;
+            position: relative;
+            background: #202020;
+            border: 2px solid transparent;
+            border-radius: 11px;
+            margin-top: 30px;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .back:hover {
+            border: 2px solid #ca49d7;
+        }
+
+        .back i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .card {
+            position: relative;
+            background: #202020;
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+            border-radius: 11px;
+            padding-top: 35px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 35px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card table {
+            width: 100%;
+        }
+
+        .card td {
+            width: 50%;
+            color: #fff;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #353535;
+        }
+
+        .card .value {
+            padding-left: 15%;
+        }
+
+        .card .end {
+            border-bottom: 2px solid transparent;
+        }
+    </style>
+
+    <div class="container" style="height: 100vh;">
+        <div class="row" style="height: 100vh;">
+            <div class="d-none d-md-block col-md-2 col-lg-3">
+                <div class="d-flex justify-content-end">
+                    <div class="back" onclick="window.location = '/items'"><i class="fa-solid fa-arrow-left-long"></i></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-6">
+                <% items.forEach(item=> { %>
+
+                    <div class="card">
+                        <% const data=JSON.parse(item.data); %>
+                            <table>
+                                <tbody>
+                                    <% const keys = Object.keys(data); %>
+                                    <% keys.forEach((key, index) => { %>
+                                        <% if (index === keys.length - 1) { %>
+                                            <tr>
+                                                <td class="end">
+                                                    <%= key %>
+                                                </td>
+                                                <td class="value end">
+                                                    <%= data[key] %>
+                                                </td>
+                                            </tr>
+                                        <% } else { %>
+                                            <tr>
+                                                <td>
+                                                    <%= key %>
+                                                </td>
+                                                <td class="value">
+                                                    <%= data[key] %>
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                        <% }); %>
+                                </tbody>
+                            </table>
+                    </div>
+
+                    <% }); %>
+            </div>
+            <div class="d-none d-md-block col-md-2 col-lg-3"></div>
+        </div>
+    </div>
+</body>
+
+</html>
