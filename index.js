@@ -39,6 +39,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'assets')));
 
@@ -87,7 +88,7 @@ app.get('/items', (req, res) => {
             if (err) {
                 return res.status(500).send("Error retrieving data from database.");
             }
-    
+
             res.render('items', { items: rows, url: req.url, footer: footer_html });
         });
     } else if (req.query.level == 'below') {
@@ -95,7 +96,7 @@ app.get('/items', (req, res) => {
             if (err) {
                 return res.status(500).send("Error retrieving data from database.");
             }
-    
+
             res.render('items', { items: rows, url: req.url, footer: footer_html });
         });
     } else {
@@ -103,7 +104,7 @@ app.get('/items', (req, res) => {
             if (err) {
                 return res.status(500).send("Error retrieving data from database.");
             }
-    
+
             res.render('items', { items: rows, url: req.url, footer: footer_html });
         });
     }
@@ -113,24 +114,59 @@ app.get('/items/add', (req, res) => {
     res.render('add-item', { footer: footer_html });
 });
 
-app.post('/items/add', upload.single('image'), (req, res) => {
+app.post('/items/add', (req, res) => {
     if (req.body.password != process.env.PASSWORD.toString()) return res.redirect('/items/add');
-    if (!req.file) return res.status(400).send('No file uploaded.');
 
     const { name, rarity, level } = req.body;
-    const image = req.file.filename;
-    delete req.body.name; delete req.body.image; delete req.body.rarity; delete req.body.level; delete req.body.password;
+    delete req.body.name; delete req.body.rarity; delete req.body.level; delete req.body.password;
     let data = JSON.stringify(req.body);
 
     const insertStatement = db.prepare("INSERT INTO items (name, image, rarity, level, data) VALUES (?, ?, ?, ?, ?)");
-    insertStatement.run(name, image, rarity, level, data, function (err) {
+    insertStatement.run(name, null, rarity, level, data, function (err) {
         if (err) {
             return res.status(500).send("Error inserting user into database.");
         }
+
+        res.redirect(`/items/add/image/${this.lastID}/`);
     });
     insertStatement.finalize();
+});
 
-    res.redirect('/items/add');
+app.get('/items/add/image/:id', (req, res) => {
+    db.all(`SELECT name FROM items WHERE id = ${req.params.id};`, (err, rows) => {
+        if (err) {
+            return res.status(500).send("Error retrieving data from database.");
+        }
+
+        res.render('add-item-image', { items: rows });
+    });
+});
+
+app.post('/items/add/image/:id', upload.single('image'), (req, res) => {
+    if (req.body.password != process.env.PASSWORD.toString()) return res.redirect('/items/add');
+    if (!req.file) return res.status(400).send('No file uploaded.');
+
+    const image = req.file.filename;
+
+    const updateStatement = db.prepare("UPDATE items SET image = ? WHERE id = ?");
+    updateStatement.run(image, req.params.id, function (err) {
+        if (err) {
+            return res.status(500).send("Error updating item in the database.");
+        }
+        
+        res.redirect('/items/add')
+    });
+    updateStatement.finalize();
+});
+
+app.get('/items/:id', (req, res) => {
+    db.all(`SELECT * FROM items WHERE id = ${req.params.id} LIMIT 1;`, (err, rows) => {
+        if (err) {
+            return res.status(500).send("Error retrieving data from database.");
+        }
+
+        res.render('item', { items: rows });
+    });
 });
 
 app.get('/media/items/:imageName', async (req, res) => {
