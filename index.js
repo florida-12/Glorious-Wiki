@@ -153,8 +153,48 @@ app.post('/items/add/image/:id', upload.single('image'), (req, res) => {
         if (err) {
             return res.status(500).send("Error updating item in the database.");
         }
-        
+
         res.redirect('/items/add')
+    });
+    updateStatement.finalize();
+});
+
+app.get('/items/edit/image/:id', (req, res) => {
+    db.all(`SELECT name, image FROM items WHERE id = ${req.params.id};`, (err, rows) => {
+        if (err) {
+            return res.status(500).send("Error retrieving data from database.");
+        }
+
+        res.render('edit-item-image', { items: rows });
+    });
+});
+
+app.post('/items/edit/image/:id', upload.single('image'), (req, res) => {
+    if (req.body.password != process.env.PASSWORD.toString()) return res.redirect('/items/add');
+    if (!req.file) return res.status(400).send('No file uploaded.');
+
+    const image = req.file.filename;
+
+    db.all(`SELECT image FROM items WHERE id = ${req.params.id};`, (err, rows) => {
+        if (err) {
+            return res.status(500).send("Error");
+        }
+
+        fs.unlink(path.join(__dirname, `media/items/${rows[0].image}`), (err) => {
+            if (err) {
+                console.error(err)
+                return res.status(500).send("Error");
+            }
+        })
+    });
+
+    const updateStatement = db.prepare("UPDATE items SET image = ? WHERE id = ?");
+    updateStatement.run(image, req.params.id, function (err) {
+        if (err) {
+            return res.status(500).send("Error updating item in the database.");
+        }
+
+        res.redirect('/items')
     });
     updateStatement.finalize();
 });

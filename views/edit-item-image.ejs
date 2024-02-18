@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glorious | Предметы</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Acrom';
+            margin: 0;
+        }
+
+        .type {
+            width: 66px;
+            height: 66px;
+            position: relative;
+            background: #202020;
+            border-radius: 11px;
+            border: 2px solid #ca49d7;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .disable {
+            filter: grayscale(1);
+            box-shadow: none;
+            border: 2px solid #202020;
+        }
+
+        .type:hover {
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+            filter: grayscale(0);
+        }
+
+        .type .frame {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #292929;
+            border-radius: 6px;
+            border: 2px solid #353535;
+            overflow: hidden;
+        }
+
+        .type .frame img {
+            width: 70%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card {
+            position: relative;
+            background: #202020;
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+            border-radius: 11px;
+            padding-top: 35px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 35px;
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+        }
+
+        .card .title {
+            font-family: 'Acrom';
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card .frame {
+            width: calc(100% - 20px);
+            height: auto;
+            position: relative;
+            background: #292929;
+            border-radius: 6px;
+            border: 2px solid #353535;
+            padding: 10px;
+            text-align: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .card .frame img {
+            width: 100%;
+            border-radius: 4px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card input {
+            width: calc(100% - 24px);
+            position: relative;
+            background: #292929;
+            border-radius: 6px;
+            border: 1.5px solid #292929;
+            font-family: 'Acrom';
+            font-size: 14px;
+            color: #fff;
+            padding-top: 15px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card input:focus {
+            box-shadow: none;
+            border: 1.5px solid #ca49d7;
+            outline: none;
+        }
+
+        .card input[type="file"] {
+            width: calc(100% - 24px);
+            position: relative;
+            background: #292929;
+            border-radius: 6px;
+            border: 1.5px solid #292929;
+            font-family: 'Acrom';
+            font-size: 14px;
+            color: #fff;
+            padding-top: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card input[type="file"]:focus {
+            box-shadow: none;
+            border: 1.5px solid #ca49d7;
+            outline: none;
+        }
+
+        .card select {
+            width: 100%;
+            background: #292929;
+            border-radius: 6px;
+            border: 1.5px solid #292929;
+            font-family: 'Acrom';
+            font-size: 14px;
+            color: #fff;
+            padding-top: 15px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card select:focus {
+            box-shadow: none;
+            border: 1.5px solid #ca49d7;
+            outline: none;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            background: #606060;
+            border-radius: 40px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .card button {
+            background: #ca49d7;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-family: 'Acrom';
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-top: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 9px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .card button:hover {
+            transform: perspective(1000px) translate3d(0, 0, 60px);
+        }
+    </style>
+
+    <div class="container" style="height: 100vh;">
+        <div class="row" style="height: 100vh;">
+            <div class="d-none d-md-block col-md-2 col-lg-4"></div>
+            <div class="col-12 col-md-8 col-lg-4">
+                <div class="card">
+                    <form action="" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                        <p class="title">
+                            <%= items[0].name %>
+                        </p>
+
+                        <div class="frame"><img src="/media/items/<%= items[0].image %>"></div>
+
+                        <input id="image" name="image" placeholder="Изображение" type="file" accept=".png" required>
+
+                        <div class="line"></div>
+
+                        <input id="password" name="password" placeholder="Пароль" type="password" required>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit">Добавить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="d-none d-md-block col-md-2 col-lg-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>
