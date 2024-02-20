@@ -88,12 +88,40 @@
                 </div>
             </div>
             <div class="col-12 col-md-8 col-lg-6">
-                <% items.forEach(item=> { %>
-
                     <div class="card">
                         <% const data=JSON.parse(item.data); %>
                             <table>
                                 <tbody>
+                                    <tr>
+                                        <td>
+                                            Уровень
+                                        </td>
+                                        <td class="value">
+                                            <%= item.level %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Редкость
+                                        </td>
+                                        <td class="value">
+                                            <%= item.rarity %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Класс(ы)
+                                        </td>
+                                        <td class="value">
+                                            <% classes.forEach((classs, index) => { %>
+                                                <% if (index === classes.length - 1) { %>
+                                                    <span><%= classs.name_ru.charAt(0).toUpperCase() + classs.name_ru.slice(1); %></span>
+                                                    <% } else { %>
+                                                        <span><%= classs.name_ru.charAt(0).toUpperCase() + classs.name_ru.slice(1); %></span>,
+                                                        <% } %>
+                                            <% }); %>
+                                        </td>
+                                    </tr>
                                     <% const keys = Object.keys(data); %>
                                     <% keys.forEach((key, index) => { %>
                                         <% if (index === keys.length - 1) { %>
@@ -119,8 +147,6 @@
                                 </tbody>
                             </table>
                     </div>
-
-                    <% }); %>
             </div>
             <div class="d-none d-md-block col-md-2 col-lg-3"></div>
         </div>

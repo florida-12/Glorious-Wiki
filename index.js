@@ -12,7 +12,14 @@ require('dotenv').config();
 
 const db = new sqlite3.Database('database.db');
 db.serialize(() => {
-    db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, image TEXT, rarity TEXT, level INTEGER, data TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, image TEXT, rarity TEXT, level INTEGER, data TEXT);");
+    db.run("CREATE TABLE IF NOT EXISTS classes (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, name_ru TEXT);");
+    db.run("CREATE TABLE IF NOT EXISTS item_classes (item_id INTEGER, class_id INTEGER, PRIMARY KEY (item_id, class_id), FOREIGN KEY (item_id) REFERENCES items(id), FOREIGN KEY (class_id) REFERENCES classes(id));");
+    //db.run("INSERT INTO classes (name, name_ru) VALUES ('warrior', 'воин');");
+    //db.run("INSERT INTO classes (name, name_ru) VALUES ('paladin', 'паладин');");
+    //db.run("INSERT INTO classes (name, name_ru) VALUES ('archer', 'лучник');");
+    //db.run("INSERT INTO classes (name, name_ru) VALUES ('thief', 'вор');");
+    //db.run("INSERT INTO classes (name, name_ru) VALUES ('mage', 'маг');");
 });
 
 let footer_html;
@@ -117,19 +124,34 @@ app.get('/items/add', (req, res) => {
 app.post('/items/add', (req, res) => {
     if (req.body.password != process.env.PASSWORD.toString()) return res.redirect('/items/add');
 
-    const { name, rarity, level } = req.body;
-    delete req.body.name; delete req.body.rarity; delete req.body.level; delete req.body.password;
+    const { name, rarity, level, classes } = req.body;
+    delete req.body.name; delete req.body.rarity; delete req.body.level; delete req.body.classes; delete req.body.password;
     let data = JSON.stringify(req.body);
 
-    const insertStatement = db.prepare("INSERT INTO items (name, image, rarity, level, data) VALUES (?, ?, ?, ?, ?)");
-    insertStatement.run(name, null, rarity, level, data, function (err) {
+    const insertItemStatement = db.prepare("INSERT INTO items (name, image, rarity, level, data) VALUES (?, ?, ?, ?, ?)");
+    insertItemStatement.run(name, null, rarity, level, data, function (err) {
         if (err) {
-            return res.status(500).send("Error inserting user into database.");
+            return res.status(500).send("Error inserting item into database.");
         }
 
-        res.redirect(`/items/add/image/${this.lastID}/`);
+        const itemId = this.lastID;
+
+        // Вставляем выбранные классы в таблицу item_classes
+        if (classes && classes.length > 0) {
+            const insertClassStatement = db.prepare("INSERT INTO item_classes (item_id, class_id) VALUES (?, (SELECT id FROM classes WHERE name = ?))");
+            classes.forEach(className => {
+                insertClassStatement.run(itemId, className, function (err) {
+                    if (err) {
+                        console.error("Error inserting class for item into database:", err);
+                    }
+                });
+            });
+            insertClassStatement.finalize();
+        }
+
+        res.redirect(`/items/add/image/${itemId}/`);
     });
-    insertStatement.finalize();
+    insertItemStatement.finalize();
 });
 
 app.get('/items/add/image/:id', (req, res) => {
@@ -200,12 +222,24 @@ app.post('/items/edit/image/:id', upload.single('image'), (req, res) => {
 });
 
 app.get('/items/:id', (req, res) => {
-    db.all(`SELECT * FROM items WHERE id = ${req.params.id} LIMIT 1;`, (err, rows) => {
+    db.get(`SELECT * FROM items WHERE id = ${req.params.id} LIMIT 1;`, (err, item) => {
         if (err) {
             return res.status(500).send("Error retrieving data from database.");
         }
 
-        res.render('item', { items: rows });
+        if (!item) {
+            return res.status(404).send("Item not found.");
+        }
+
+        db.all(`SELECT classes.* FROM item_classes 
+                INNER JOIN classes ON item_classes.class_id = classes.id 
+                WHERE item_classes.item_id = ${req.params.id};`, (err, classes) => {
+            if (err) {
+                return res.status(500).send("Error retrieving data from database.");
+            }
+            
+            res.render('item', { item: item, classes: classes });
+        });
     });
 });
 
