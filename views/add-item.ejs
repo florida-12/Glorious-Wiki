@@ -154,6 +154,41 @@
             outline: none;
         }
 
+        .card select[multiple] {
+            width: 100%;
+            background: #292929;
+            border-radius: 6px;
+            border: 1.5px solid #292929;
+            font-family: 'Acrom';
+            font-size: 14px;
+            color: #fff;
+            padding-top: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+
+        }
+
+        .card select[multiple]::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .card select[multiple]::-webkit-scrollbar-track {
+            background: #292929;
+        }
+
+        .card select[multiple]::-webkit-scrollbar-thumb {
+            background: #666666;
+            border-radius: 40px;
+        }
+
+        .card select[multiple]:focus {
+            box-shadow: none;
+            border: 1.5px solid #ca49d7;
+            outline: none;
+        }
+
         .line {
             width: 100%;
             height: 2px;
@@ -190,16 +225,17 @@
             <div class="d-none d-md-block col-md-2 col-lg-4">
                 <div class="d-flex justify-content-end">
                     <div style="margin-top: 30px;">
-                        <div id="type_weapon" class="type" onclick="$('#type_weapon').removeClass('disable'); $('#type_armor').addClass('disable'); $('#weapon').removeClass('d-none'); $('#armor').addClass('d-none');">
+                        <div id="type_weapon" class="type"
+                            onclick="$('#type_weapon').removeClass('disable'); $('#type_armor').addClass('disable'); $('#weapon').removeClass('d-none'); $('#armor').addClass('d-none');">
                             <div class="frame">
                                 <img src="/img/icon-weapon.png">
                             </div>
                         </div>
 
-                        <div id="type_armor" class="type disable" onclick="$('#type_weapon').addClass('disable'); $('#type_armor').removeClass('disable'); $('#weapon').addClass('d-none'); $('#armor').removeClass('d-none');">
+                        <div id="type_armor" class="type disable"
+                            onclick="$('#type_weapon').addClass('disable'); $('#type_armor').removeClass('disable'); $('#weapon').addClass('d-none'); $('#armor').removeClass('d-none');">
                             <div class="frame">
-                                <img
-                                    src="/img/icon-armor.png">
+                                <img src="/img/icon-armor.png">
                             </div>
                         </div>
 
@@ -239,6 +275,15 @@
                         </select>
 
                         <input id="level" name="level" placeholder="Необходимый уровень" type="number" required>
+
+                        <select id="class_type" name="classes" multiple required>
+                            <option value="warrior">Воин</option>
+                            <option value="paladin">Паладин</option>
+                            <option value="archer">Лучник</option>
+                            <option value="thief">Вор</option>
+                            <option value="mage">Маг</option>
+                            <!--<option>Целитель</option>-->
+                        </select>
 
                         <div class="row">
                             <div class="col-6">
@@ -325,6 +370,15 @@
 
                         <input id="level" name="level" placeholder="Необходимый уровень" type="number" required>
 
+                        <select id="class_type" name="classes" multiple required>
+                            <option value="warrior">Воин</option>
+                            <option value="paladin">Паладин</option>
+                            <option value="archer">Лучник</option>
+                            <option value="thief">Вор</option>
+                            <option value="mage">Маг</option>
+                            <!--<option>Целитель</option>-->
+                        </select>
+
                         <div class="row g-3">
                             <div class="col-4">
                                 <input id="health" name="Здоровье" placeholder="ХП" type="number" step="0.1">
@@ -339,10 +393,12 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <input id="movement_speed" name="Скорость передвижения" placeholder="Скорость" type="number" step="0.1">
+                                <input id="movement_speed" name="Скорость передвижения" placeholder="Скорость"
+                                    type="number" step="0.1">
                             </div>
                             <div class="col-6">
-                                <input id="damage_reduction" name="Снижение урона" placeholder="Сниж. урона" type="number" step="0.1">
+                                <input id="damage_reduction" name="Снижение урона" placeholder="Сниж. урона"
+                                    type="number" step="0.1">
                             </div>
                         </div>
 
