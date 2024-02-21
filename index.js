@@ -15,11 +15,6 @@ db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, image TEXT, rarity TEXT, level INTEGER, data TEXT);");
     db.run("CREATE TABLE IF NOT EXISTS classes (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, name_ru TEXT);");
     db.run("CREATE TABLE IF NOT EXISTS item_classes (item_id INTEGER, class_id INTEGER, PRIMARY KEY (item_id, class_id), FOREIGN KEY (item_id) REFERENCES items(id), FOREIGN KEY (class_id) REFERENCES classes(id));");
-    //db.run("INSERT INTO classes (name, name_ru) VALUES ('warrior', 'воин');");
-    //db.run("INSERT INTO classes (name, name_ru) VALUES ('paladin', 'паладин');");
-    //db.run("INSERT INTO classes (name, name_ru) VALUES ('archer', 'лучник');");
-    //db.run("INSERT INTO classes (name, name_ru) VALUES ('thief', 'вор');");
-    //db.run("INSERT INTO classes (name, name_ru) VALUES ('mage', 'маг');");
 });
 
 let footer_html;
