@@ -84,6 +84,10 @@ app.get('/classes/thief', (req, res) => {
     res.render('classes/thief', { footer: footer_html });
 });
 
+app.get('/classes/mage', (req, res) => {
+    res.render('classes/mage', { footer: footer_html });
+});
+
 app.get('/items', (req, res) => {
     if (req.query.level == 'above') {
         db.all("SELECT * FROM items ORDER BY -level;", (err, rows) => {

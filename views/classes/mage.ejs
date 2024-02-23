@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glorious | Классы</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        .mage {
+            background-color: #202020;
+            box-shadow: #9b59b933 5px 5px, #9b59b91a 10px 10px, #9b59b90d 15px 15px;
+            border-radius: 11px;
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .mage-title {
+            color: #fff;
+            font-size: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: -160px;
+            margin-bottom: 20px;
+        }
+
+        .mage-desc {
+            width: 80%;
+            color: #b1b0b0;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .mage-subtitle {
+            color: #ca49d7;
+            text-transform: uppercase;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .mage table,
+        th,
+        td {
+            border: 2px solid #353535;
+            border-collapse: collapse;
+        }
+
+        .mage table {
+            width: 79%;
+            height: 140px;
+            background: #292929;
+            border-radius: 6px;
+            border: 2px solid #353535;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .mage table td {
+            padding-top: 10px;
+            padding-left: 15px;
+            padding-bottom: 12px;
+        }
+
+        .mage td img {
+            margin-bottom: -3px;
+        }
+
+        .mage-line {
+            width: 100%;
+            height: 2px;
+            position: relative;
+            background: #2d2d2d;
+            border-radius: 40px;
+            margin-top: 60px;
+        }
+
+        .mage-img {
+            width: 13.5%;
+            position: relative;
+            background: #292929;
+            border: 2px solid #353535;
+            padding-top: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 20px;
+        }
+
+        .mage-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .mage-skill {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .mage-skill img {
+            width: 25px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: -6px;
+        }
+
+        .mage ul {
+            color: #b1b0b0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .mage .line {
+            width: 80px;
+            height: 2px;
+            background-color: #ca49d7;
+            border-radius: 40px;
+            margin-top: 40px;
+            margin-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .mage ul li {
+            margin-bottom: 3px;
+        }
+
+        .mage-tree {
+            position: relative;
+            background: #292929;
+            border: 2px solid #353535;
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 50px;
+            margin-top: 40px;
+        }
+    </style>
+
+    <div class="discord" onclick="window.open('https://discord.gg/2FbAMjeNmH', '_blank');">
+        <i class="fa-brands fa-discord"></i>
+    </div>
+    <div class="bg-wave">
+        <img class="logo" src="/img/logo.png">
+        <img class="background" src="/img/bg-home.png">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: relative;">
+            <path fill="#1a1a1a" fill-opacity="1"
+                d="M0,96L120,122.7C240,149,480,203,720,202.7C960,203,1200,149,1320,122.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+    <div class="bg">
+        <div class="container">
+            <nav>
+                <div class="d-flex justify-content-between">
+                    <div class="nav-link" onclick="window.location = '/'">
+                        <p class="d-inline-flex"><a>Главная</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.location = '/classes'">
+                        <p class="d-inline-flex"><a>Классы</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.location = '/items'">
+                        <p class="d-inline-flex"><a>Предметы</a></p>
+                    </div>
+                    <div class="nav-link" onclick="window.open('http://m10.joinserver.xyz:25639/', '_blank');">
+                        <p class="d-inline-flex"><a>Локации</a></p>
+                    </div>
+                    <div class="nav-link">
+                        <p class="d-inline-flex" style="border-radius: 8px 8px 0 0;"><a>Существа</a><i
+                                class="fa-solid fa-chevron-down"></i></p>
+                        <div class="dropdown">
+                            <p><a href="/creatures/characters">Персонажи</a></p>
+                            <div class="line"></div>
+                            <p><a href="/creatures/enemies">Противники</a></p>
+                            <div class="line"></div>
+                            <p><a href="/creatures/bosses">Боссы</a></p>
+                        </div>
+                    </div>
+                    <div class="nav-link">
+                        <p class="d-inline-flex" style="border-radius: 8px 8px 0 0;"><a>Квесты</a><i
+                                class="fa-solid fa-chevron-down"></i></p>
+                        <div class="dropdown">
+                            <p><a href="/quests/plot">Сюжетное&nbsp;прохождение</a></p>
+                            <div class="line"></div>
+                            <p><a href="/quests/side">Побочные&nbsp;задания</a></p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="nav-line"></div>
+
+            <div class="mage">
+                
+                <div class="d-flex justify-content-between">
+                    <table>
+                        <tr>
+                            <td>—————————</td>
+                            <td style="color: #d23139;">Здоровье <img src="https://cdn.discordapp.com/attachments/1117777787638530099/1192202546849255454/health.png"></td>
+                            <td style="color: #2399d8;">Мана <img src="https://cdn.discordapp.com/attachments/1117777787638530099/1192202546585010186/mana.png"></td>
+                            <td>Восстановление здоровья</td>
+                            <td>Восстановление маны</td>
+                        </tr>
+                        <tr>
+                            <td>На старте</td>
+                            <td>36</td>
+                            <td>18</td>
+                            <td>0.5</td>
+                            <td>0.4</td>
+                        </tr>
+                        <tr>
+                            <td>За уровень</td>
+                            <td>+3.5</td>
+                            <td>+0.5</td>
+                            <td>+0.02</td>
+                            <td>+0.05</td>
+                        </tr>
+                    </table>
+                    <div class="mage-img">
+                        <img src="/img/mage.png">
+                    </div>
+                </div>
+                
+                <p class="mage-title">Маг</p>
+                <p class="mage-desc">Маг - это игровой класс, чья сила зависит от могущества его магии. Однако, его физическая хрупкость делает его уязвимым и привлекает внимание атакующих. Основной источник урона этого класса - это разнообразные виды магии.</p>
+
+                <div>
+                    <div class="mage-line"></div>
+                    <p class="mage-subtitle">Специальные умения</p>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1205103474153357352/skills590.png">
+                            Огненный шар
+                    </p>
+                    <ul>
+                        <li>Любимое заклинение начинающих волшебников.</li>
+                        <li>Игрок запускает огненный шар по траектория своего взгляда. Накладывает эффект адского пламени на цель.</li>
+                        <li>Тип навыка - пирокинетика.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1205104816402210846/skills288.png">
+                            Ползучая зараза
+                    </p>
+                    <ul>
+                        <li>Лоза, оплетающая все на своем пути.</li>
+                        <li>Игрок призывает ползучую заразу. Она наносит урон и накладывает эффект оцепенения.</li>
+                        <li>Тип навыка - геомантия.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1205105365423882270/skills516.png">
+                            Разлом пространства
+                    </p>
+                    <ul>
+                        <li>Только продвинутые маги способны переломить систему пространства-времени.</li>
+                        <li>Игрок телепортируется по траектория своего взгляда.</li>
+                        <li>Тип навыка - аэротеургия.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1205106505070940160/skills734.png">
+                            Ледяная поступь
+                    </p>
+                    <ul>
+                        <li>Пронзает врагов насквозь.</li>
+                        <li>Игрок призывает ледяные шипы, которые наносят урон и накладывают эффект оглушения.</li>
+                        <li>Тип навыка - гидрософистика.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1205107284238147665/skills788.png">
+                            Цепи Тербиса
+                    </p>
+                    <ul>
+                        <li>Цепи бога Тербиса, великого, и не́когда всемогущего, но отныне забытого.</li>
+                        <li>Игрок призывает цепи перед собой, которые наносят урон и накладывают эффект горения.</li>
+                        <li>Тип навыка - пирокинетика.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1201174414738333716/skills746.png">
+                            Форма орла
+                    </p>
+                    <ul>
+                        <li>Для волшебников, искусство путешествий является наилучшим способом передвижения.</li>
+                        <li>Игрок превращается в орла.</li>
+                        <li>Тип навыка - геомантия.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1201174778724237453/icon_blade_dance.png">
+                            Ледяной шторм
+                    </p>
+                    <ul>
+                        <li>Мощное заклинание, замораживающее все вокруг.</li>
+                        <li>Время действия - 5 секунд, радиус действия шторма - 7 блоков. Может заморозить игрока на 3.5 секунды.</li>
+                        <li>Тип навыка - гидрософистика.</li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1201174778724237453/icon_blade_dance.png">
+                            Метеоритный дождь
+                    </p>
+                    <ul>
+                        <li>Маг взывает к великой силе Ильматера.</li>
+                        <li>Игрок призывает перед собой метеоритный дождь, метиориты оглушают цель на 0.2 секунды.</li>
+                        <li>Тип навыка - пирокинетика.</li>
+                    </ul>
+                    <div class="mage-line"></div>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1201174778724237453/icon_blade_dance.png">
+                            Шторм маны
+                    </p>
+                    <ul>
+                        <li>Маг взывает к великой силе Ильматера.</li>
+                        <li>Игрок призывает перед собой шторм маны, вызывая вокруг удары молний. На игрока накладывается эффект левитации. Также, при приземлении оглушает всех игроков на 2.5 секунды.</li>
+                        <li>Тип навыка - аэротеургия.</li>
+                    </ul>
+                    <div class="mage-line"></div>
+                    <p class="mage-subtitle">Пассивные умения</p>
+                    <p class="mage-skill">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1190943166229127178/1201175036992692315/skills384.png">
+                            Высвобождение маны
+                    </p>
+                    <ul>
+                        <li>Волшебники используют весь свой потенциал для выживания.</li>
+                        <li>Когда у игрока остается меньше 70 здоровья, он получает эффект противоестественности и наносит всем вокруг урон.</li>
+                        <li>Тип навыка - аэротеургия.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="mage-line"></div>
+                    <p class="mage-subtitle">Древо улучшений</p>
+                    <div class="mage-tree">
+                        <img style="width: 100%;" src="https://cdn.discordapp.com/attachments/1190030669083070566/1193319409788403762/image_2024-01-05_05-07-08.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- footer %>
+    </div>
+</body>
+
+</html>
